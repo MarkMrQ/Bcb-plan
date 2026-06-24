@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BCB — POC Sitemap &amp; Page List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FBF9F3;--card:#FFFFFF;--ink:#23201A;--mut:#7A7468;--faint:#ADA697;--line:#EDE9DE;--pine:#15805E;--pine-d:#0F6347;--gold:#B0801F;--clay:#C0492F;--grey:#6B7480;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:34px 22px 60px}
+  h1{font-family:var(--disp);font-weight:800;font-size:clamp(26px,4vw,40px);letter-spacing:-.03em;margin:6px 0 8px}
+  .kick{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+  .lede{font-size:15px;color:var(--mut);max-width:74ch;margin:0 0 22px}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+  .lg{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:7px;padding:5px 10px;background:var(--card);display:flex;align-items:center;gap:7px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .d-poc{background:var(--pine)} .d-tpl{background:var(--gold)} .d-legal{background:var(--faint)} .d-p2{background:#3f7bbf} .d-t2{background:var(--grey)}
+  .zone{border-radius:16px;padding:24px;margin:0 0 16px;border:1px solid var(--line);background:var(--card);box-shadow:0 1px 3px rgba(60,50,30,.03)}
+  .zone.flagship{background:#F6FCF9;border-color:#D2E8DD}
+  .zone.p2{background:#F5F8FC;border-color:#DCE6F1;border-style:dashed}
+  .zone.t2{background:#F8F6F1;border-color:#E3DFD5;border-style:dashed}
+  .ztop{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .ztop h2{font-family:var(--disp);font-weight:700;font-size:21px;letter-spacing:-.02em;margin:0}
+  .ztag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:4px 9px}
+  .ztag.now{background:#E7F2ED;color:var(--pine-d)} .ztag.later{background:#E5ECF5;color:#3f6ea8} .ztag.t2{background:#E4E2DD;color:var(--grey)}
+  .zsub{font-size:13.5px;color:var(--mut);margin:0 0 16px;max-width:80ch}
+  .grp{margin:14px 0 0} .grp h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 9px;border-bottom:1px solid var(--line);padding-bottom:5px}
+  .rows{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px} @media(max-width:720px){.rows{grid-template-columns:1fr}}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:7px 0}
+  .url{font-family:var(--mono);font-size:12.5px;color:var(--pine-d);white-space:nowrap}
+  .row .meta{display:block;font-size:12px;color:var(--mut);margin-top:1px}
+  .row .nm{font-weight:600;font-size:13.5px}
+  .pin{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0}
+  .p-poc{background:var(--pine)} .p-tpl{background:var(--gold)} .p-legal{background:var(--faint)}
+  .pat{font-family:var(--mono);font-size:12.5px;color:var(--grey);background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:6px 0;display:block}
+  .pat b{color:var(--ink)}
+  .note{font-size:13px;color:var(--mut);margin:10px 0 0} .note b{color:var(--ink)}
+  .flag{font-size:12.5px;color:var(--clay);font-family:var(--mono);margin-top:8px}
+  .summary{background:#F1F8F4;border:1px solid #D2E8DD;color:var(--ink);border-radius:16px;padding:26px;margin:22px 0 0}
+  .summary h2{font-family:var(--disp);font-weight:700;font-size:19px;margin:0 0 14px;letter-spacing:-.02em;color:var(--ink)}
+  .scount{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px} @media(max-width:720px){.scount{grid-template-columns:1fr 1fr}}
+  .scount .n{font-family:var(--disp);font-weight:800;font-size:32px;color:var(--pine)} .scount .l{font-size:12px;color:var(--mut);margin-top:2px}
+  .summary p{color:var(--mut);font-size:13.5px;margin:0;max-width:80ch} .summary b{color:var(--ink)}
+  .foot{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:26px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">BestCasinoBonus.com · scope pack input</div>
+  <h1>POC sitemap &amp; page list</h1>
+  <p class="lede">The exact pages for the UK flagship POC, with the Canada and Germany clone pattern architected behind it and the grey tier sitting on separate domains. This is the URL set the scope pack and pricing run off, and the structure George builds the platform around.</p>
+
+  <div class="legend">
+    <span class="lg"><span class="dot d-poc"></span>POC, build now</span>
+    <span class="lg"><span class="dot d-tpl"></span>Template, build once then scale</span>
+    <span class="lg"><span class="dot d-legal"></span>Trust &amp; legal, needed for credibility</span>
+    <span class="lg"><span class="dot d-p2"></span>Phase 2, architected now</span>
+    <span class="lg"><span class="dot d-t2"></span>Tier 2, separate domain, later</span>
+  </div>
+
+  <!-- FLAGSHIP -->
+  <div class="zone flagship">
+    <div class="ztop"><h2>UK flagship · root (en-GB)</h2><span class="ztag now">POC · AWS · UKGC-licensed only</span></div>
+    <p class="zsub">Domain root. Regulated operators only, wagering capped at 10x, brutally-honest-but-flirty tone, real byline (Joe). This is what gets built and priced for the POC.</p>
+
+    <div class="grp">
+      <h3>Core money pages</h3>
+      <div class="rows">
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Homepage</span><span class="url">/</span><span class="meta">Hero, sortable Real Value board, intent chips, category cards, signup</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">No wagering</span><span class="url">/no-wagering/</span><span class="meta">Hero category, the differentiator, incl. bingo angle</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Free spins</span><span class="url">/free-spins/</span><span class="meta">50/100/200, win cap, expiry</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">No deposit</span><span class="url">/no-deposit/</span><span class="meta">£5–£20, test at zero risk</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Welcome bonuses</span><span class="url">/welcome-bonuses/</span><span class="meta">Match, package, 10x cap</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Cashback</span><span class="url">/cashback/</span><span class="meta">Real cash vs bonus cashback</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Methodology</span><span class="url">/methodology/</span><span class="meta">How the Real Value Score works, the "says who"</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Compare</span><span class="url">/compare/</span><span class="meta">Side-by-side on Real Value</span></div></div>
+        <div class="row"><span class="pin p-poc"></span><div><span class="nm">Slot races</span><span class="url">/slot-races/</span><span class="meta">Manual entry for POC, leaderboard = announcement</span></div></div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <h3>Templates (prove once in POC, scale after)</h3>
+      <div class="rows">
+        <div class="row"><span class="pin p-tpl"></span><div><span class="nm">Slot reviews hub</span><span class="url">/slots/</span><span class="meta">+ 3–4 samples, e.g. /slots/big-bass-bonanza/</span></div></div>
+        <div class="row"><span class="pin p-tpl"></span><div><span class="nm">Casino reviews</span><span class="url">/casino/{slug}/</span><span class="meta">1 sample, e.g. /casino/mrq/ (review template)</span></div></div>
+        <div class="row"><span class="pin p-tpl"></span><div><span class="nm">Guides</span><span class="url">/guides/</span><span class="meta">+ 1–2 articles, e.g. /guides/how-real-value-works/</span></div></div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <h3>Trust &amp; legal (needed to look like a real affiliate)</h3>
+      <div class="rows">
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/about/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/responsible-gambling/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/advertising-disclosure/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/editorial-policy/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/privacy/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/terms/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/cookies/</span></div></div>
+        <div class="row"><span class="pin p-legal"></span><div><span class="url">/contact/</span></div></div>
+      </div>
+      <div class="note"><b>Site-wide chrome (not pages):</b> 18+ age gate on entry, geo nudge, email signup + exit-intent pop-up (two-close cap), the charged footer. Footer signup form deferred past POC per Joe.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 LOCALES -->
+  <div class="zone p2">
+    <div class="ztop"><h2>Market clones · locale subfolders</h2><span class="ztag later">Phase 2 · architected now, built later</span></div>
+    <p class="zsub">Each market mirrors the flagship page set in its own subfolder, regulated operators only, with hreflang and x-default tying them together. Build the platform so these slot in without refactor; do not build the content yet.</p>
+    <span class="pat"><b>Canada (en):</b> /ca/  →  /ca/no-wagering/, /ca/free-spins/, /ca/welcome-bonuses/ …</span>
+    <span class="pat"><b>Canada (Quebec French):</b> /ca-fr/  (hreflang en-CA ⇄ fr-CA)</span>
+    <span class="pat"><b>Germany (native German):</b> /de/  →  /de/ohne-umsatzbedingungen/ … (no English mirror)</span>
+    <div class="flag">⚠ Ontario: no bonus / inducement ads, the /ca tree cannot show bonus offers to Ontario. Germany: GGL-licensed operators only, German bonus-ad limits, native content. Native keyword research, not translation.</div>
+  </div>
+
+  <!-- TIER 2 GREY -->
+  <div class="zone t2">
+    <div class="ztop"><h2>Tier 2 · grey / non-UK</h2><span class="ztag t2">Separate domains · separate hosting/IP · later</span></div>
+    <p class="zsub">Unlicensed-in-UK (Curaçao, MGA, crypto, no-KYC) operators. Lives on separate tier-2 domains from the portfolio, never a subfolder of the flagship, so the regulated brand's authority is firewalled. Geo-gated by enforcement, licence named per operator, weaker-protection caveat stated, brutally-honest-about-grey tone.</p>
+    <span class="pat"><b>e.g.</b> {country-emd-domain}.com  →  toplist, crash games, bonus buys, streamers (Twitch/Kick), VIP</span>
+    <div class="flag">⚠ Not in the POC. Bonus buy and streamers belong here, not on the flagship. Geo enforcement and per-operator licensing are Acrum's compliance sign-off.</div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <h2>What this unblocks</h2>
+    <div class="scount">
+      <div><div class="n">9</div><div class="l">core money pages</div></div>
+      <div><div class="n">3</div><div class="l">templates (proved on samples)</div></div>
+      <div><div class="n">8</div><div class="l">trust &amp; legal pages</div></div>
+      <div><div class="n">~20</div><div class="l">total POC URLs incl. samples</div></div>
+    </div>
+    <p><b>POC = the UK flagship set above only.</b> The clone markets and the tier-2 grey sites are architected for, not built. This is the URL list the scope pack hands Joe, Mark and George to price. The split to make explicit for pricing: the POC is a defined one-off; the portal-scale build (thousands of game pages, the tier-2 sites, the market clones) is separate and later.</p>
+  </div>
+
+  <div class="foot">BestCasinoBonus.com · POC sitemap · working draft for the scope pack · structure per the 24 June decisions</div>
+</div>
+</body>
+</html>

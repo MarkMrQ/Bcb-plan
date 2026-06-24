@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BestCasinoBonus.com — Casino Bonuses Ranked by Real Value</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F4F0E7;--card:#FFF;--ink:#191510;--mut:#6E685C;--faint:#A39C8C;--line:#E6E0D0;--pine:#147A5B;--pine-d:#0E5A43;--gold:#A9781A;--clay:#C0492F;--chip:#EBE6D8;--grey:#5A6470;--disp:"Bricolage Grotesque",system-ui,sans-serif;--body:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+  .proto{position:fixed;right:10px;bottom:10px;z-index:80;background:var(--ink);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:6px 10px;border-radius:7px;opacity:.9}
+  .gate{position:fixed;inset:0;z-index:200;background:rgba(20,17,12,.94);display:flex;align-items:center;justify-content:center;padding:24px}
+  .gate .box{background:var(--paper);border-radius:18px;max-width:420px;width:100%;padding:34px 30px;text-align:center}
+  .gate h2{font-family:var(--disp);font-weight:800;font-size:26px;margin:0 0 6px;letter-spacing:-.02em}
+  .gate p{color:var(--mut);font-size:14.5px;margin:0 0 22px}
+  .gate .btns{display:flex;gap:10px}
+  .gate button{flex:1;font-family:var(--body);font-weight:600;font-size:15px;padding:13px;border-radius:10px;cursor:pointer;border:1px solid var(--line)}
+  .gate .yes{background:var(--pine);color:#fff;border-color:var(--pine)} .gate .no{background:var(--card);color:var(--ink)}
+  .gate .legal{font-size:11.5px;color:var(--faint);margin-top:16px}
+  .gate .denied{display:none} .gate.deny .ask{display:none} .gate.deny .denied{display:block}
+  .geo{background:var(--pine);color:#fff;font-size:13px;text-align:center;padding:8px 16px}
+  .geo b{font-weight:600} .geo button{background:none;border:none;color:#fff;text-decoration:underline;cursor:pointer;font:inherit} .geo .x{float:right;border:none;background:none;color:#fff;font-size:15px;cursor:pointer;opacity:.85}
+  header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:13px 0;gap:14px}
+  .logo{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap;cursor:pointer}
+  .logo b{color:var(--pine)} .logo .tld{color:var(--faint);font-weight:600}
+  .menu{display:flex;gap:15px;font-size:13px;color:var(--mut);flex-wrap:wrap;align-items:center}
+  .menu a{cursor:pointer} .menu a:hover,.menu a.on{color:var(--ink)} .menu a.on{font-weight:600}
+  .menu .sep{width:1px;height:14px;background:var(--line)} .menu .cry{color:var(--grey);font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+  @media(max-width:980px){.menu{display:none}}
+  .page{display:none} .page.active{display:block}
+  .hero{padding:48px 0 8px} .hero.tight{padding:40px 0 6px}
+  .kick{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--pine)}
+  h1{font-family:var(--disp);font-weight:800;font-size:clamp(31px,5.2vw,54px);line-height:1.02;letter-spacing:-.03em;margin:13px 0 13px;max-width:18ch}
+  h1 .u{color:var(--pine)}
+  .sub{font-size:clamp(15px,1.9vw,18px);color:var(--mut);max-width:60ch;margin:0} .sub b{color:var(--ink);font-weight:600}
+  .herobtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .btn{font-family:var(--body);font-weight:600;font-size:14px;padding:12px 20px;border-radius:11px;cursor:pointer;border:1px solid var(--pine);background:var(--pine);color:#fff}
+  .btn.ghost{background:transparent;color:var(--pine)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:30px 0 6px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px}
+  .step .n{font-family:var(--mono);font-size:11px;color:var(--gold)} .step .h{font-family:var(--disp);font-weight:700;font-size:16px;margin-top:5px} .step .d{font-size:13px;color:var(--mut);margin-top:3px}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .secthead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:36px 0 4px}
+  .secthead .l .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--pine)}
+  .secthead .l h2{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin:5px 0 0}
+  .sortrow{display:flex;gap:6px;flex-wrap:wrap} .sl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);align-self:center}
+  .sbtn{font-family:var(--mono);font-size:11px;background:var(--card);border:1px solid var(--line);border-radius:7px;padding:6px 10px;cursor:pointer;color:var(--mut)}
+  .sbtn:hover{border-color:var(--faint)} .sbtn.on{background:var(--pine);border-color:var(--pine);color:#fff}
+  .secdesc{font-size:14px;color:var(--mut);max-width:64ch;margin:10px 0 14px}
+  /* toplist table */
+  .thead,.trow{display:grid;grid-template-columns:26px 1.7fr 116px 120px 78px 92px;gap:12px;align-items:center}
+  .thead{padding:0 16px 6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint)}
+  .thead .r{text-align:right}
+  .rows{display:grid;gap:9px}
+  .trow{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px}
+  .trow.top{border-color:var(--pine);box-shadow:0 0 0 1px var(--pine)}
+  .rk{font-family:var(--mono);font-size:12px;color:var(--faint);text-align:center}
+  .ofr{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3}
+  .opr{font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:3px}
+  .opr .ribbon{display:inline-block;font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:#E7F2ED;color:var(--pine-d);border-radius:5px;padding:2px 6px;margin-left:5px}
+  .opr .ribbon.gold{background:#F6EEDB;color:var(--gold)}
+  .wag{font-family:var(--mono);font-size:12.5px} .wag.zero{color:var(--pine);font-weight:600} .cash{font-family:var(--mono);font-size:12px;color:var(--mut)}
+  .rv{text-align:right} .rv .num{font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:-.02em} .rv .bar{height:4px;background:var(--line);border-radius:3px;margin-top:3px;overflow:hidden} .rv .fill{height:100%;background:var(--pine)}
+  .act{display:flex;flex-direction:column;gap:4px} .claim{background:var(--pine);color:#fff;font-weight:600;font-size:12px;text-align:center;padding:8px 6px;border-radius:8px} .claim:hover{background:var(--pine-d)} .rev{font-family:var(--mono);font-size:10px;color:var(--mut);text-align:center}
+  @media(max-width:820px){.thead{display:none}.trow{grid-template-columns:1fr 1fr;gap:8px 12px;position:relative;padding:16px}.rk{position:absolute;top:10px;left:14px}.trow>div:nth-child(2){grid-column:1/3;padding-left:20px}.rv{text-align:left}.act{grid-column:1/3}.claim{padding:11px}}
+  /* differentiator */
+  .diff{background:var(--ink);color:#F4F0E7;border-radius:18px;padding:30px 28px;margin:30px 0}
+  .diff .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#E7C46B}
+  .diff h2{font-family:var(--disp);font-weight:800;font-size:clamp(23px,3.2vw,32px);letter-spacing:-.02em;margin:8px 0 10px}
+  .diff p{color:#C9C3B4;font-size:15px;max-width:66ch;margin:0 0 18px}
+  .diff .three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .diff .three .h{font-family:var(--disp);font-weight:700;font-size:15px;color:#fff} .diff .three .d{font-size:12.5px;color:#A89F8E;margin-top:4px}
+  .diff a.ml{display:inline-block;color:#E7C46B;font-family:var(--mono);font-size:12px;border:1px solid #4a4234;border-radius:8px;padding:8px 13px}
+  @media(max-width:760px){.diff .three{grid-template-columns:1fr}}
+  /* featured casinos */
+  .feat{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+  .fcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px;display:flex;gap:14px;align-items:flex-start}
+  .fcard.gold{border-color:var(--gold)}
+  .ava{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#1d6b53,#0e3d30);color:#cfe7dd;font-family:var(--disp);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .fcard .nm{font-family:var(--disp);font-weight:700;font-size:16px} .fbadge{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:#F6EEDB;color:var(--gold);border-radius:5px;padding:2px 6px;margin-left:6px}
+  .frate{font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:2px} .fofr{font-size:13px;color:var(--ink);margin-top:6px;font-weight:600}
+  .ftags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px} .ftag{font-family:var(--mono);font-size:9.5px;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:3px 7px}
+  .frv{margin-left:auto;text-align:right} .frv .n{font-family:var(--disp);font-weight:800;font-size:22px} .frv .l{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .facts{display:flex;gap:8px;margin-top:10px} .facts a{font-family:var(--mono);font-size:11px} .facts .rr{color:var(--pine)} .facts .vc{color:var(--mut)}
+  @media(max-width:760px){.feat{grid-template-columns:1fr}}
+  /* collections */
+  .colls{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+  .coll{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px;cursor:pointer;transition:.15s} .coll:hover{border-color:var(--pine);transform:translateY(-2px)}
+  .coll .c{font-family:var(--mono);font-size:10px;color:var(--gold)} .coll .h{font-family:var(--disp);font-weight:700;font-size:16px;margin-top:5px} .coll .d{font-size:12.5px;color:var(--mut);margin-top:4px} .coll .a{font-family:var(--mono);font-size:11px;color:var(--pine);margin-top:9px}
+  @media(max-width:760px){.colls{grid-template-columns:1fr}}
+  /* trust strip */
+  .trust{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:30px 0 0}
+  .trust span{font-family:var(--mono);font-size:11px;color:var(--mut);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 13px}
+  /* content blocks */
+  .block{padding:24px 0;border-top:1px solid var(--line)}
+  .btag{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pine)} .btag.catch{color:var(--clay)}
+  .block h2{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.7vw,26px);letter-spacing:-.02em;margin:7px 0 9px}
+  .block p{font-size:15px;color:var(--mut);max-width:66ch;margin:0 0 8px} .block p b{color:var(--ink)} .block ul{color:var(--mut);font-size:15px;max-width:66ch;margin:6px 0;padding-left:18px} .block li{margin:4px 0}
+  .faq{padding:24px 0;border-top:1px solid var(--line)} .faq h2{font-family:var(--disp);font-weight:700;font-size:23px;letter-spacing:-.02em;margin:0 0 10px}
+  .qa{border-bottom:1px solid var(--line);padding:12px 0} .qa .q{font-weight:600;font-size:15px} .qa .a{font-size:14px;color:var(--mut);margin-top:5px;max-width:68ch}
+  /* signup */
+  .signup{background:var(--pine);color:#fff;border-radius:18px;padding:28px 26px;margin:30px 0}
+  .signup h3{font-family:var(--disp);font-weight:800;font-size:22px;margin:0 0 7px;letter-spacing:-.02em} .signup p{margin:0 0 14px;color:#D7EAE2;font-size:14px;max-width:54ch}
+  .sform{display:flex;gap:10px;flex-wrap:wrap;max-width:480px} .sform input{flex:1;min-width:190px;border:none;border-radius:10px;padding:12px 14px;font:inherit} .sform button{background:var(--ink);color:#fff;border:none;border-radius:10px;padding:12px 18px;font-weight:600;cursor:pointer}
+  .signup .fine{font-size:11px;color:#A9CFC2;margin-top:11px}
+  /* methodology / review */
+  .factors{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:6px}
+  .factor{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px} .factor .h{font-family:var(--disp);font-weight:700;font-size:16px} .factor .w{font-family:var(--mono);font-size:10.5px;color:var(--gold);margin-top:3px} .factor .d{font-size:13px;color:var(--mut);margin-top:6px}
+  @media(max-width:760px){.factors{grid-template-columns:1fr}}
+  .termtable{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-top:8px}
+  .termtable .tr{display:flex;justify-content:space-between;padding:11px 16px;border-bottom:1px solid var(--line);font-size:14px} .termtable .tr:last-child{border-bottom:none} .termtable .tr .k{color:var(--mut)} .termtable .tr .v{font-weight:600}
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px} .pc{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px} .pc h4{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 8px} .pc.pro h4{color:var(--pine)} .pc.con h4{color:var(--clay)} .pc ul{margin:0;padding-left:16px;font-size:13.5px;color:var(--mut)} .pc li{margin:5px 0}
+  @media(max-width:760px){.proscons{grid-template-columns:1fr}}
+  /* guides */
+  .guides{display:grid;grid-template-columns:repeat(3,1fr);gap:11px} .guide{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:17px;cursor:pointer;transition:.15s} .guide:hover{border-color:var(--pine)} .guide .h{font-family:var(--disp);font-weight:700;font-size:15.5px;line-height:1.25} .guide .d{font-size:12.5px;color:var(--mut);margin-top:6px} .guide .by{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:9px}
+  @media(max-width:760px){.guides{grid-template-columns:1fr}}
+  /* compare */
+  .cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:8px} .cmpc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px} .cmpc.win{border-color:var(--pine)} .cmpc .nm{font-family:var(--disp);font-weight:700;font-size:16px} .cmpc .big{font-family:var(--disp);font-weight:800;font-size:30px;margin:6px 0} .cmpc .ln{display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-top:1px solid var(--line)} .cmpc .ln .k{color:var(--mut)}
+  @media(max-width:760px){.cmp{grid-template-columns:1fr}}
+  /* slots / races / crypto reuse */
+  .slotgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px} .slotcard{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden} .slotcard .thumb{height:92px;background:linear-gradient(135deg,#1d6b53,#0e3d30);display:flex;align-items:center;justify-content:center;color:#bfe3d6;font-family:var(--mono);font-size:11px;text-align:center;padding:0 10px} .slotcard .b{padding:12px} .slotcard .h{font-family:var(--disp);font-weight:700;font-size:15px} .slotcard .m{font-family:var(--mono);font-size:10px;color:var(--faint);margin-top:5px} .slotcard .r{color:var(--gold);font-weight:700;font-family:var(--disp);font-size:15px;margin-top:6px}
+  @media(max-width:760px){.slotgrid{grid-template-columns:1fr}}
+  .racegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px} .racecard{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px} .pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;border-radius:5px;padding:3px 7px} .pill.live{background:#E7F2ED;color:var(--pine-d)} .pill.up{background:#F6EEDB;color:var(--gold)} .pill.end{background:#EDEAE2;color:var(--faint)} .racecard .h{font-family:var(--disp);font-weight:700;font-size:16px;margin:8px 0 3px} .racecard .prize{font-family:var(--disp);font-weight:800;font-size:21px;color:var(--pine)} .racecard .m{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:4px}
+  @media(max-width:760px){.racegrid{grid-template-columns:1fr}}
+  .lboard{border:1px dashed var(--pine);border-radius:13px;padding:18px;margin-top:12px;background:#EEF5F1} .lboard .h{font-family:var(--disp);font-weight:700;font-size:17px} .lboard p{font-size:13.5px;color:var(--mut);margin:5px 0 0}
+  .riskbanner{background:#2C2A27;color:#E4C36B;font-family:var(--mono);font-size:11.5px;text-align:center;padding:9px 16px;border-radius:10px;margin:8px 0 0} .greyhero .kick{color:var(--grey)} .greyhero h1 .u{color:var(--grey)} .crow{border-color:#D9D6CF} .crow .rv .fill{background:var(--grey)} .cnote{font-family:var(--mono);font-size:10.5px;color:var(--grey)}
+  /* crypto teaser */
+  .cwall{border:1px dashed var(--grey);border-radius:16px;padding:22px;margin:30px 0;background:#F0EEE9} .cwall .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)} .cwall h3{font-family:var(--disp);font-weight:700;font-size:20px;margin:6px 0 8px} .cwall p{font-size:14px;color:var(--mut);margin:0;max-width:62ch} .cwall a.go{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:12px;color:var(--grey);border:1px solid var(--grey);border-radius:8px;padding:8px 13px}
+  footer{background:var(--ink);color:#CFC9BA;padding:38px 0 42px;margin-top:36px;font-size:13px}
+  .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:22px;margin-bottom:18px} .fcol h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#8E887B;margin:0 0 9px} .fcol a{display:block;color:#CFC9BA;padding:3px 0;font-size:13px;cursor:pointer} .fcol a:hover{color:#fff}
+  .fdesc{color:#9B9485;font-size:13px;line-height:1.6;max-width:40ch} .flogo{font-family:var(--disp);font-weight:800;font-size:18px;color:#fff;margin-bottom:9px} .flogo b{color:#5FBFA0}
+  .rg{display:flex;gap:9px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:11px;margin:16px 0;padding:14px 0;border-top:1px solid #2a2419;border-bottom:1px solid #2a2419} .rg .b{background:#241e17;border-radius:6px;padding:5px 10px} .rg .geosel{margin-left:auto;color:#9B9485}
+  .social{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px} .social a{font-family:var(--mono);font-size:11px;color:#9B9485;border:1px solid #2a2419;border-radius:6px;padding:5px 9px;cursor:pointer}
+  .disc{color:#857F72;max-width:82ch;line-height:1.6;margin-top:16px;font-size:12px} .copy{color:#6F695D;font-size:11.5px;margin-top:12px;font-family:var(--mono)}
+  @media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}.rg .geosel{margin-left:0}}
+  .pop{position:fixed;inset:0;z-index:120;background:rgba(20,17,12,.55);display:none;align-items:center;justify-content:center;padding:22px} .pop.show{display:flex} .pop .box{background:var(--paper);border-radius:18px;max-width:440px;width:100%;padding:30px 28px;position:relative} .pop .x{position:absolute;top:12px;right:14px;border:none;background:none;font-size:22px;color:var(--faint);cursor:pointer} .pop h3{font-family:var(--disp);font-weight:800;font-size:23px;margin:0 0 8px;letter-spacing:-.02em} .pop p{color:var(--mut);font-size:14px;margin:0 0 16px} .pop .sform input{background:var(--card);border:1px solid var(--line)} .pop .fine{font-size:11px;color:var(--faint);margin-top:10px}
+  @media(prefers-reduced-motion:no-preference){.trow{animation:fade .3s ease both}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="proto">Prototype · sample data</div>
+
+<div class="gate" id="gate"><div class="box">
+  <div class="ask"><h2>Are you 18 or older?</h2><p>This site reviews real-money gambling offers. It's strictly for adults.</p>
+    <div class="btns"><button class="yes" id="ageYes">Yes, I'm 18+</button><button class="no" id="ageNo">No</button></div>
+    <div class="legal">18+ only · UKGC-licensed operators · Please gamble responsibly · BeGambleAware.org</div></div>
+  <div class="denied"><h2>Sorry, you can't enter</h2><p>This site is for users aged 18 and over only. For support, visit BeGambleAware.org or GamCare.org.uk.</p></div>
+</div></div>
+
+<div class="geo" id="geo"><button class="x" onclick="document.getElementById('geo').style.display='none'">×</button>You're in the <b>UK</b>, so we're showing UK-licensed bonuses only. <button onclick="return false">Not in the UK?</button></div>
+
+<header><div class="wrap nav">
+  <div class="logo" data-go="home"><b>BestCasinoBonus</b><span class="tld">.com</span></div>
+  <nav class="menu">
+    <a data-go="nowager">No wagering</a><a data-go="freespins">Free spins</a><a data-go="nodeposit">No deposit</a><a data-go="welcome">Welcome</a><a data-go="cashback">Cashback</a><a data-go="slots">Slots</a><a data-go="races">Races</a>
+    <span class="sep"></span><a data-go="compare">Compare</a><a data-go="guides">Guides</a><a data-go="methodology">Methodology</a>
+    <span class="sep"></span><a class="cry" data-go="intl">International ↗</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="kick">Independent, expert, transparent · UK</div>
+      <h1>Casino bonuses ranked by <span class="u">what you actually keep.</span></h1>
+      <p class="sub"><b>Everyone else ranks by the biggest number.</b> We strip out the wagering, the caps and the catches, and score what's really left for you. Then we let you sort it your way.</p>
+      <div class="herobtns"><button class="btn" data-go="nowager">See top bonuses</button><button class="btn ghost" data-go="methodology">How we score</button></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div class="h">Choose</div><div class="d">Pick what "best" means to you, biggest, least hassle, no deposit.</div></div>
+      <div class="step"><div class="n">02</div><div class="h">Compare</div><div class="d">See the real terms side by side, scored honestly.</div></div>
+      <div class="step"><div class="n">03</div><div class="h">Claim</div><div class="d">Go to the casino knowing exactly what you're getting.</div></div>
+    </div>
+    <div class="secthead"><div class="l"><div class="k">Ranked by real value</div><h2>Top casino bonuses</h2></div>
+      <div class="sortrow"><span class="sl">sort</span><button class="sbtn on" data-sort="value">Best overall</button><button class="sbtn" data-sort="biggest">Biggest bonus</button><button class="sbtn" data-sort="nowager">Lowest wagering</button><button class="sbtn" data-sort="payout">Fast payouts</button></div>
+    </div>
+    <div class="secdesc">Every figure verified against the operator's live terms. Nothing here exceeds the UK's 10x wagering cap, and the bonuses where you keep what you win sit top, because that's what the score rewards.</div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="homeRows"></div>
+
+    <div class="diff"><div class="k">Our differentiator</div><h2>Real Value, not bonus size</h2>
+      <p>A £500 bonus at 10x can be worth less than 50 free spins with no wagering at all. Our Real Value Score (0 to 100) is the honest maths: what a normal player realistically walks away with, once the terms have had their say.</p>
+      <div class="three"><div><div class="h">Multi-factor scoring</div><div class="d">Wagering, game weighting, cashout caps and expiry all count.</div></div><div><div class="h">Verified terms</div><div class="d">Every bonus checked against the operator's live T&amp;Cs.</div></div><div><div class="h">Editorial independence</div><div class="d">Rankings are never for sale. Affiliate links disclosed.</div></div></div>
+      <a class="ml" data-go="methodology" href="#">Read the methodology →</a>
+    </div>
+
+    <div class="secthead"><div class="l"><div class="k">Expert reviews</div><h2>Featured casinos</h2></div></div>
+    <div class="feat" id="featuredCards"></div>
+
+    <div class="secthead"><div class="l"><div class="k">Browse by type</div><h2>Bonus collections</h2></div></div>
+    <div class="colls">
+      <div class="coll" data-go="nowager"><div class="c">Highest scoring</div><div class="h">No wagering</div><div class="d">Keep what you win, the offers that top our board.</div><div class="a">View all →</div></div>
+      <div class="coll" data-go="freespins"><div class="c">High demand</div><div class="h">Free spins</div><div class="d">50, 100, 200, compared by wagering, caps and expiry.</div><div class="a">View all →</div></div>
+      <div class="coll" data-go="nodeposit"><div class="c">No money down</div><div class="h">No deposit</div><div class="d">Test a casino at zero risk, terms made plain.</div><div class="a">View all →</div></div>
+      <div class="coll" data-go="welcome"><div class="c">For new players</div><div class="h">Welcome bonuses</div><div class="d">First-deposit offers ranked past the headline.</div><div class="a">View all →</div></div>
+      <div class="coll" data-go="cashback"><div class="c">Money back</div><div class="h">Cashback</div><div class="d">Losses back, and whether it's real cash or more bonus.</div><div class="a">View all →</div></div>
+      <div class="coll" data-go="slots"><div class="c">We played them</div><div class="h">Slot reviews</div><div class="d">First-hand verdicts, screenshots and all.</div><div class="a">View all →</div></div>
+    </div>
+
+    <div class="signup"><h3>The good offers, in your inbox.</h3><p>Genuinely worthwhile bonuses as casinos run them, the no-wagering ones especially, over time, not all at once. No spam.</p>
+      <form class="sform" onsubmit="return false"><input type="email" placeholder="your@email.com" aria-label="email"><button>Send me the good ones</button></form>
+      <div class="fine">18+ only. We may earn commission from offers we send; it never changes our scores. Please gamble responsibly.</div></div>
+
+    <div class="secthead"><div class="l"><div class="k">Learn</div><h2>Guides</h2></div></div>
+    <div class="guides">
+      <div class="guide" data-go="guide"><div class="h">How we calculate the Real Value of a bonus</div><div class="d">Why 50 no-wagering spins can beat a £500 match.</div><div class="by">By Joe Short</div></div>
+      <div class="guide" data-go="nowager"><div class="h">No wagering bonuses explained: usually the better deal</div><div class="d">Zero wagering sounds perfect, and the maths agrees.</div><div class="by">By Joe Short</div></div>
+      <div class="guide" data-go="methodology"><div class="h">UK licensing: what the UKGC actually protects</div><div class="d">Licensed versus offshore, and why it matters to you.</div><div class="by">By Joe Short</div></div>
+    </div>
+
+    <div class="trust"><span>Independently verified</span><span>Terms checked against live T&amp;Cs</span><span>Transparent scoring</span><span>Editorial integrity</span></div>
+
+    <div class="cwall"><div class="k">Licensed elsewhere · /international</div><h3>Looking for international casinos?</h3><p>Operators licensed outside the UK (Curaçao, MGA and similar) offer bigger bonuses and often take crypto, with fewer protections. They live in our separate, geo-gated section, with the licence named on each, and they're never shown to UK players by default.</p><a class="go" data-go="intl" href="#">See international casinos ↗</a></div>
+  </div>
+
+  <!-- NO WAGERING -->
+  <div class="page" id="page-nowager">
+    <div class="hero tight"><div class="kick">The honest best · highest scoring</div><h1>No wagering bonuses: <span class="u">keep what you win.</span></h1><p class="sub"><b>The rare offer with no catch.</b> Win it, keep it, withdraw it, no playing it through ten times first. It's why no-wagering tops our Real Value board.</p></div>
+    <div class="secdesc">Verified zero-wagering offers, ranked by Real Value.</div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="nowagerRows"></div>
+    <div class="block"><div class="btag">What it means</div><h2>"What you see is what you get"</h2><p><b>A no-wagering bonus eliminates the playthrough entirely.</b> Win from your spins and the money credits as cash you can withdraw immediately. The UK now caps wagering at 10x, down from the old 35x to 65x norm, but no-wagering is the only zero. That's why a smaller no-wagering offer usually beats a flashier one wrapped in terms.</p></div>
+    <div class="block"><div class="btag">UK favourite</div><h2>No wagering bingo</h2><p><b>Wager-free bingo is a big UK thing, and we cover it.</b> Free bingo tickets and wager-free winnings, scored the same honest way.</p></div>
+    <div class="faq"><h2>FAQ</h2>
+      <div class="qa"><div class="q">What does "no wagering" actually mean?</div><div class="a">You keep everything you win, with no playthrough. Winnings credit as withdrawable cash, not bonus funds.</div></div>
+      <div class="qa"><div class="q">Is the 10x cap the same as no wagering?</div><div class="a">No. From 2026 the UK caps wagering at 10x, the legal maximum. No wagering is zero, which is better.</div></div>
+      <div class="qa"><div class="q">Are no-wagering bonuses really better?</div><div class="a">Usually. A smaller no-wagering offer often beats a bigger one once you account for the playthrough.</div></div>
+    </div>
+  </div>
+
+  <!-- FREE SPINS -->
+  <div class="page" id="page-freespins">
+    <div class="hero tight"><div class="kick">High demand</div><h1>Free spins: <span class="u">50, 100, 200</span>, and the catch.</h1><p class="sub"><b>The big spin numbers are the bait.</b> The win cap, the wagering and the expiry decide if they're worth your time. We show all three on every offer.</p></div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="freespinsRows"></div>
+    <div class="block"><div class="btag catch">The small print</div><h2>What decides if free spins are worth it</h2><p><b>Free spins range from 1 to 200, and winnings are often capped around £100.</b> Many carry wagering, so the "free" winnings aren't free until you've played them through, and they expire, often within a week. We list the terms so the headline number can't mislead you. No-wagering free spins rank highest, every time.</p></div>
+    <div class="faq"><h2>FAQ</h2><div class="qa"><div class="q">What's the catch with free spins?</div><div class="a">Usually a win cap (often £100), wagering on the winnings, and a short expiry. We flag all three.</div></div><div class="qa"><div class="q">Do free spins winnings come as cash?</div><div class="a">Only on no-wagering offers. Otherwise they're bonus funds you must play through first.</div></div></div>
+  </div>
+
+  <!-- NO DEPOSIT -->
+  <div class="page" id="page-nodeposit">
+    <div class="hero tight"><div class="kick">No money down</div><h1>No deposit bonuses: <span class="u">test it at zero risk.</span></h1><p class="sub"><b>A small bonus for signing up, no deposit needed.</b> Great for trying a casino, but the terms are usually stricter, and we tell you so up front.</p></div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="nodepositRows"></div>
+    <div class="block"><div class="btag">What it means</div><h2>Small bonus, stricter terms</h2><p><b>No-deposit bonuses typically run £5 to £20.</b> You'll usually verify your payment details before you can withdraw, and caps tend to be tighter. The upside is real: you test the casino without risking your own money.</p></div>
+    <div class="faq"><h2>FAQ</h2><div class="qa"><div class="q">How much is a typical no-deposit bonus?</div><div class="a">Usually £5 to £20 in value, or a set number of free spins.</div></div><div class="qa"><div class="q">Can I withdraw straight away?</div><div class="a">Not usually. You'll verify payment details first, and wagering applies unless it's a no-wagering offer.</div></div></div>
+  </div>
+
+  <!-- WELCOME -->
+  <div class="page" id="page-welcome">
+    <div class="hero tight"><div class="kick">For new players</div><h1>Welcome bonuses, <span class="u">ranked past the hype.</span></h1><p class="sub"><b>First-deposit offers, match bonuses and packages.</b> From 2026 the wagering is capped at 10x, so we hold every offer to that and score what survives.</p></div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="welcomeRows"></div>
+    <div class="block"><div class="btag">What it means</div><h2>Match, package or free spins</h2><p><b>A welcome bonus is an exclusive offer for new customers on first deposit.</b> The headline percentage matters far less than the wagering attached, which is why our score looks straight past it.</p></div>
+    <div class="faq"><h2>FAQ</h2><div class="qa"><div class="q">What's the most a welcome bonus can make me wager?</div><div class="a">From 2026, UK bonuses are capped at 10x the bonus amount.</div></div><div class="qa"><div class="q">Is a bigger match always better?</div><div class="a">No. A 100% match at 10x can beat a 200% match at 10x once you factor in the larger amount you'd have to wager.</div></div></div>
+  </div>
+
+  <!-- CASHBACK -->
+  <div class="page" id="page-cashback">
+    <div class="hero tight"><div class="kick">Money back</div><h1>Cashback: <span class="u">real cash beats bonus cash.</span></h1><p class="sub"><b>A percentage of your losses returned.</b> The honest question is whether it comes as withdrawable cash or more bonus to play through. We flag which is which.</p></div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="cashbackRows"></div>
+    <div class="block"><div class="btag">The honest detail</div><h2>Wager-free cashback is worth far more</h2><p><b>Cashback usually returns a percentage of weekly losses.</b> Wager-free cashback you can withdraw is genuine value. "Cashback" that lands as a bonus you must wager again is worth a fraction of the headline.</p></div>
+  </div>
+
+  <!-- METHODOLOGY -->
+  <div class="page" id="page-methodology">
+    <div class="hero tight"><div class="kick">The "says who?"</div><h1>How the <span class="u">Real Value Score</span> works.</h1><p class="sub"><b>Zero to 100, and we show our working.</b> The score answers one question: of the bonus advertised, how much can a normal player realistically keep? Bigger headline numbers don't move it. Better terms do.</p></div>
+    <div class="block" style="border-top:none"><div class="btag">What goes into it</div><h2>Four factors</h2></div>
+    <div class="factors">
+      <div class="factor"><div class="h">Wagering</div><div class="w">Weighted heaviest</div><div class="d">The playthrough is the single biggest drag on value. Zero (no-wagering) scores best; the UK's 10x cap is the worst you'll see from us, because anything higher isn't legal here.</div></div>
+      <div class="factor"><div class="h">Game weighting</div><div class="w">How fast it clears</div><div class="d">Slots usually count 100% toward wagering; live casino and table games barely count, which quietly makes a bonus far harder to clear.</div></div>
+      <div class="factor"><div class="h">Cashout caps</div><div class="w">What you can take</div><div class="d">A win cap limits what you can actually withdraw. No cap is best; a low cap drags the score down however big the headline.</div></div>
+      <div class="factor"><div class="h">Expiry</div><div class="w">Time pressure</div><div class="d">A short window forces rushed play. Longer, fairer expiry scores better.</div></div>
+    </div>
+    <div class="block"><div class="btag">A worked example</div><h2>Why 50 spins can beat £500</h2><p><b>Take a 200% match up to £500 at 10x.</b> To clear it you'd wager thousands, on the house edge, and most players never see the cash. <b>Now take 50 free spins with no wagering.</b> Whatever you win is yours, instantly. The second is smaller on paper and worth more in your pocket. The score reflects that, the headline doesn't.</p></div>
+    <div class="block"><div class="btag">How we keep it honest</div><h2>Verified, and never for sale</h2><ul><li>Every figure is checked against the operator's live terms before it's listed, and re-checked regularly. Unverifiable means not listed.</li><li>Rankings are never sold. We earn commission from some links, and it never changes a score or a position.</li><li>Our partners are held to the same standard as everyone else, and labelled as partners.</li></ul></div>
+  </div>
+
+  <!-- REVIEW (sample) -->
+  <div class="page" id="page-review">
+    <div class="hero tight"><div class="kick">Casino review · verified terms</div><h1>MrQ <span class="u">review.</span></h1><p class="sub"><b>Rating 4.9 / 5 · Real Value 96.</b> A UKGC-licensed casino built around a genuinely rare thing: no wagering on its bonuses. We hold it to the same checks as everyone else, and it's a disclosed partner.</p></div>
+    <div class="block" style="border-top:none"><div class="btag">The offer</div><h2>Up to 200 free spins, no wagering</h2></div>
+    <div class="termtable">
+      <div class="tr"><span class="k">Wagering</span><span class="v" style="color:var(--pine)">0x (no wagering)</span></div>
+      <div class="tr"><span class="k">Max cashout</span><span class="v">Keep what you win</span></div>
+      <div class="tr"><span class="k">Min deposit</span><span class="v">£10</span></div>
+      <div class="tr"><span class="k">Eligible games</span><span class="v">Selected slots</span></div>
+      <div class="tr"><span class="k">Expiry</span><span class="v">7 days</span></div>
+      <div class="tr"><span class="k">Licence</span><span class="v">UK Gambling Commission</span></div>
+    </div>
+    <div class="proscons">
+      <div class="pc pro"><h4>What's good</h4><ul><li>True no-wagering: winnings are cash, immediately.</li><li>Fast, no-nonsense withdrawals.</li><li>UKGC-licensed, proper player protections.</li></ul></div>
+      <div class="pc con"><h4>The catches</h4><ul><li>Spins are on selected slots, not your pick of the lot.</li><li>7-day window is tighter than some.</li><li>Min £10 deposit to trigger the spins.</li></ul></div>
+    </div>
+    <div class="block"><div class="btag">The verdict</div><h2>Worth it if you value keeping what you win</h2><p><b>Most casinos dress up a big number and bury the wagering.</b> MrQ does the opposite: a smaller-sounding offer with nothing hiding behind it. If you'd rather win £40 and actually withdraw it than "win" £400 you'll never clear, this is the honest pick. That it's a partner doesn't change the score, the zero wagering earns it.</p>
+      <div style="margin-top:14px"><a class="claim" style="display:inline-block;padding:12px 22px" href="#">Visit MrQ</a> <span class="cnote" style="color:var(--faint)">18+ · T&amp;Cs apply · affiliate link, we may earn a commission</span></div>
+    </div>
+  </div>
+
+  <!-- GUIDES -->
+  <div class="page" id="page-guides">
+    <div class="hero tight"><div class="kick">Learn</div><h1>Guides &amp; <span class="u">straight answers.</span></h1><p class="sub">No filler. The handful of things actually worth understanding before you claim a bonus.</p></div>
+    <div class="guides" style="margin-top:14px">
+      <div class="guide" data-go="guide"><div class="h">How to calculate the Real Value of a casino bonus</div><div class="d">Why a £200 bonus at 10x beats a £500 one wrapped in terms, with the maths.</div><div class="by">By Joe Short</div></div>
+      <div class="guide" data-go="nowager"><div class="h">No wagering bonuses explained: are they worth it?</div><div class="d">Zero wagering sounds perfect. Here's where it genuinely is, and the small print that remains.</div><div class="by">By Joe Short</div></div>
+      <div class="guide" data-go="methodology"><div class="h">UK casino licensing: what players need to know</div><div class="d">UKGC versus offshore, and how the licence affects your money and your protections.</div><div class="by">By Joe Short</div></div>
+    </div>
+  </div>
+
+  <!-- GUIDE (sample article) -->
+  <div class="page" id="page-guide">
+    <div class="hero tight"><div class="kick">Guide · by Joe Short</div><h1>How to calculate the <span class="u">real value</span> of a bonus.</h1></div>
+    <div class="block" style="border-top:none"><p><b>Here's the thing the big-number sites won't tell you: the headline is marketing, not value.</b> A bonus is only worth what you can realistically withdraw after the terms have done their work. So before you claim anything, run it through three quick questions.</p></div>
+    <div class="block"><h2>1. What's the wagering, really?</h2><p>Multiply the bonus by the wagering. A £100 bonus at 10x means staking £1,000 before you can withdraw, on games with a house edge. At 0x, there's nothing to clear, the win is yours. From 2026 no UK bonus can exceed 10x, so if you see 35x, you're not looking at a UK-licensed offer.</p></div>
+    <div class="block"><h2>2. What actually counts?</h2><p>Slots usually clear wagering at 100%. Live casino and table games often count 10% or nothing, which can triple or quadruple the real playthrough without the headline ever changing. Always check the game weighting.</p></div>
+    <div class="block"><h2>3. What can you take out?</h2><p>A win cap and a short expiry quietly cap the upside. "Win up to £100 from free spins" means exactly that, however lucky you get. Factor it in.</p></div>
+    <div class="block"><h2>The honest shortcut</h2><p><b>No wagering, no cap, slots at 100%, that's the gold standard, and it's rare.</b> When you see it, a smaller number is usually the better bonus. That's the whole idea behind our score: do this maths for you, on every offer, so you don't have to.</p></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="page" id="page-compare">
+    <div class="hero tight"><div class="kick">Side by side</div><h1>Compare bonuses on <span class="u">what matters.</span></h1><p class="sub">Headline number, wagering, cashout, and the Real Value that ties it together.</p></div>
+    <div class="cmp" style="margin-top:8px">
+      <div class="cmpc win"><div class="opr" style="margin-bottom:4px">Best value<span class="ribbon gold" style="margin-left:6px">No wagering</span></div><div class="nm">MrQ</div><div class="big" style="color:var(--pine)">96</div><div class="ln"><span class="k">Bonus</span><span>200 free spins</span></div><div class="ln"><span class="k">Wagering</span><span style="color:var(--pine);font-weight:600">0x</span></div><div class="ln"><span class="k">Max cashout</span><span>Keep what you win</span></div><div class="ln"><span class="k">Expiry</span><span>7 days</span></div></div>
+      <div class="cmpc"><div class="nm">BetMGM</div><div class="big">75</div><div class="ln"><span class="k">Bonus</span><span>200 free spins</span></div><div class="ln"><span class="k">Wagering</span><span>10x</span></div><div class="ln"><span class="k">Max cashout</span><span>£100</span></div><div class="ln"><span class="k">Expiry</span><span>30 days</span></div></div>
+      <div class="cmpc"><div class="nm">Ladbrokes</div><div class="big">68</div><div class="ln"><span class="k">Bonus</span><span>£30 after £10</span></div><div class="ln"><span class="k">Wagering</span><span>10x</span></div><div class="ln"><span class="k">Max cashout</span><span>£500</span></div><div class="ln"><span class="k">Expiry</span><span>7 days</span></div></div>
+    </div>
+    <div class="block"><p><b>Same headline, very different value.</b> MrQ and BetMGM both offer 200 free spins, but one is 0x and yours to keep, the other is 10x with a £100 cap. That gap is exactly what the Real Value Score is built to show.</p></div>
+  </div>
+
+  <!-- SLOTS -->
+  <div class="page" id="page-slots">
+    <div class="hero tight"><div class="kick">We actually played them</div><h1>Slot reviews from someone who <span class="u">spun the reels.</span></h1><p class="sub"><b>Not rewritten spec sheets.</b> RTP, volatility, max win, our own rating, and an honest verdict, with screenshots of the real session.</p></div>
+    <div class="slotgrid" style="margin-top:6px">
+      <div class="slotcard"><div class="thumb">demo unavailable in your region</div><div class="b"><div class="h">Big Bass Bonanza</div><div class="m">Pragmatic Play · RTP 96.7% · high vol</div><div class="r">8.4 / 10</div></div></div>
+      <div class="slotcard"><div class="thumb">demo unavailable in your region</div><div class="b"><div class="h">Big Bass Splash</div><div class="m">Pragmatic Play · RTP 96.7% · high vol</div><div class="r">8.1 / 10</div></div></div>
+      <div class="slotcard"><div class="thumb">demo unavailable in your region</div><div class="b"><div class="h">Gates of Olympus</div><div class="m">Pragmatic Play · RTP 96.5% · high vol</div><div class="r">8.6 / 10</div></div></div>
+    </div>
+    <div class="block"><div class="btag">Hands-on</div><h2>Big Bass Bonanza</h2><div style="font-family:var(--mono);font-size:11.5px;color:var(--mut);margin:4px 0 10px">RTP 96.71% · High volatility · Max win 2,100x · Pragmatic Play · our rating 8.4</div><p>It draws you in fast: the fisherman wilds during free spins are where the session lives or dies. We hit the bonus twice in an hour, one dud, one that collected four wilds and paid properly. High volatility, so the base game goes quiet for long stretches, expect to feel that. Counts 100% toward wagering, which makes it a sensible pick for clearing a bonus. Worth your money if you like feature-chasing and can ride the dry spells.</p></div>
+  </div>
+
+  <!-- RACES -->
+  <div class="page" id="page-races">
+    <div class="hero tight"><div class="kick">Play now</div><h1>Slot races &amp; tournaments, <span class="u">running right now.</span></h1><p class="sub"><b>Where the good races are live this week.</b> Prize pools, rules and a countdown, with our link to join. A private monthly leaderboard for registered players is coming.</p></div>
+    <div class="racegrid" style="margin-top:6px">
+      <div class="racecard"><span class="pill live">Live now</span><div class="h">Weekend Slot Race</div><div class="prize">£10,000</div><div class="m">host casino · ends in 2d 14h · min £0.20 spins</div><a class="claim" style="margin-top:11px;display:inline-block;padding:9px 16px" href="#">Join race</a></div>
+      <div class="racecard"><span class="pill up">Upcoming</span><div class="h">Big Bass Tournament</div><div class="prize">£5,000</div><div class="m">starts Friday · 200 prizes · qualifying slots</div><a class="claim" style="margin-top:11px;display:inline-block;padding:9px 16px" href="#">Set reminder</a></div>
+      <div class="racecard"><span class="pill up">Upcoming</span><div class="h">Daily Drops &amp; Wins</div><div class="prize">£2,500</div><div class="m">daily · random + leaderboard prizes</div><a class="claim" style="margin-top:11px;display:inline-block;padding:9px 16px" href="#">Set reminder</a></div>
+      <div class="racecard"><span class="pill end">Ended</span><div class="h">Midweek Madness</div><div class="prize" style="color:var(--faint)">£7,500</div><div class="m">finished Tuesday · see winners</div><a class="claim" style="margin-top:11px;display:inline-block;padding:9px 16px;background:var(--faint)" href="#">View results</a></div>
+    </div>
+    <div class="lboard"><div class="h">Our private monthly leaderboard, coming soon</div><p>Register with us and join a private leaderboard with its own prizes, on top of the casino's race. For now this is an announcement; tracking goes live for registered players after launch.</p></div>
+  </div>
+
+  <!-- INTERNATIONAL / NON-UK -->
+  <div class="page" id="page-intl">
+    <div class="riskbanner">⚠ These casinos are licensed outside the UK (Curaçao, MGA and similar), not by the UK Gambling Commission. Player protections are weaker. Shown by region, not to UK players.</div>
+    <div class="hero tight greyhero"><div class="kick">Licensed elsewhere · /international</div><h1>International casinos: <span class="u">licensed, just not in the UK.</span></h1><p class="sub"><b>Bigger bonuses, different rules, fewer protections.</b> These operators are regulated outside the UK and often take crypto. We show them where they're legal, name the licence on every one, and never serve them to UK players by default.</p></div>
+    <div class="secthead"><div class="l"><h2 style="font-size:20px">International bonuses (sample, illustrative)</h2></div><span class="cnote">non-UK licensed · verify everything</span></div>
+    <div class="thead"><div></div><div>Bonus &amp; operator</div><div>Wagering</div><div>Max cashout</div><div class="r">Real value</div><div></div></div>
+    <div class="rows" id="intlRows"></div>
+    <div class="block"><div class="btag catch">Read this first</div><h2>What "non-UK licensed" actually means</h2><p><b>Most of these carry a Curaçao or MGA licence, not a UKGC one.</b> That usually means weaker complaint routes, no GAMSTOP self-exclusion, and no UK Gambling Commission to escalate to. The bonuses are bigger and the wagering higher, because the rule that caps UK offers at 10x doesn't apply here. We name the regulator on every operator so you know exactly what you're dealing with, and a Curaçao licence is not the same protection as a UKGC one.</p></div>
+    <div class="block"><div class="btag catch">More fun, worse odds, we'll say it</div><h2>Bonus buys</h2><p><b>Buying the bonus round is a 30-second hit of drama, which is exactly why it's huge on Twitch and Kick.</b> Be clear though: the buy-mode RTP is usually worse than playing the base game. You're paying for the feature and the show, not better odds. Bonus buys aren't permitted at UK-licensed casinos, which is why they live here.</p></div>
+    <div class="block"><div class="btag">Watch it live</div><h2>Streamed on Twitch &amp; Kick</h2><p><b>Many of these casinos are where the big slot and bonus-buy streamers play.</b> We link out to their channels so you can watch a session before you decide; we don't host or endorse the streams. 18+, and any creator we feature is 25+, per advertising rules.</p>
+      <div class="feat" style="margin-top:12px">
+        <div class="fcard crow"><div class="ava" style="background:linear-gradient(135deg,#3a3f48,#23262c)">T</div><div style="flex:1"><div class="nm">Live on Twitch</div><div class="frate">slot &amp; bonus-buy sessions</div><div class="ftags"><span class="ftag">watch live</span><span class="ftag">links out</span></div></div></div>
+        <div class="fcard crow"><div class="ava" style="background:linear-gradient(135deg,#3a3f48,#23262c)">K</div><div style="flex:1"><div class="nm">Live on Kick</div><div class="frate">high-stakes &amp; crash</div><div class="ftags"><span class="ftag">watch live</span><span class="ftag">links out</span></div></div></div>
+      </div>
+    </div>
+    <div class="block"><div class="btag catch">Be honest with yourself</div><h2>The risk is real</h2><p><b>Weaker licensing cuts both ways.</b> Faster sign-up and bigger offers, but slower or disputed withdrawals, fewer protections, and no UK regulator to turn to. Only play what you can afford to lose. Support: BeGambleAware.org.</p></div>
+  </div>
+
+</main>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div class="fcol"><div class="flogo"><b>BestCasinoBonus</b>.com</div><div class="fdesc">An independent UK casino bonus and review site. We help players compare offers, understand the terms, and choose where to play responsibly. We are not a casino and you cannot gamble on this site.</div></div>
+    <div class="fcol"><h4>Bonuses</h4><a data-go="nowager">No wagering</a><a data-go="freespins">Free spins</a><a data-go="nodeposit">No deposit</a><a data-go="welcome">Welcome</a><a data-go="cashback">Cashback</a></div>
+    <div class="fcol"><h4>Site</h4><a data-go="slots">Slot reviews</a><a data-go="races">Slot races</a><a data-go="compare">Compare</a><a data-go="review">Casino reviews</a><a data-go="guides">Guides</a></div>
+    <div class="fcol"><h4>Trust</h4><a data-go="methodology">Methodology</a><a data-go="methodology">Real Value Score</a><a data-go="methodology">Affiliate disclosure</a><a href="#">Responsible gambling</a></div>
+  </div>
+  <div class="rg"><span class="b">18+</span><span class="b">UKGC-licensed operators only</span><span class="b">BeGambleAware.org</span><span class="b">GamCare.org.uk</span><span class="b">National Gambling Helpline 0808 8020 133</span><span class="geosel">United Kingdom — English ▾</span></div>
+  <div class="fcol"><h4>Legal &amp; social</h4><div class="social"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Cookie Policy</a><a href="#">Advertising Disclosure</a><a href="#">Editorial Policy</a><a href="#">Get in touch</a></div>
+    <div class="social" style="margin-top:8px"><a href="#">Telegram</a><a href="#">X</a><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Twitch</a><a href="#">Reddit</a></div></div>
+  <div class="disc">BestCasinoBonus.com is an independent casino review and bonus comparison website. We do not offer gambling services and you cannot play for real money on this site. We may receive commission from partner casinos; it never changes our rankings. Every bonus figure is verified against the operator's live terms before listing, and terms can change, so always check the casino's current rules before claiming. 18+ only. Gambling can be addictive, please gamble responsibly. Prototype shown with sample data for layout only.</div>
+  <div class="copy">© 2026 BestCasinoBonus.com. All rights reserved. BestCasinoBonus.com and the logo are trademarks of their respective owner.</div>
+</div></footer>
+
+<div class="pop" id="pop"><div class="box"><button class="x" id="popX">×</button><h3>The good offers, before everyone else.</h3><p>Leave your email and we'll send the genuinely worthwhile bonuses as casinos run them, the no-wagering ones first. No spam.</p><form class="sform" onsubmit="return false"><input type="email" placeholder="your@email.com" aria-label="email"><button>Sign me up</button></form><div class="fine">18+ only. We may earn commission; it never changes our scores. Please gamble responsibly.</div></div></div>
+
+<script>
+(function(){
+  function gs(k){try{return sessionStorage.getItem(k);}catch(e){return window["__"+k]||null;}}
+  function ss(k,v){try{sessionStorage.setItem(k,v);}catch(e){window["__"+k]=v;}}
+  var gate=document.getElementById("gate");
+  if(gs("bcb_age")==="ok")gate.style.display="none";
+  document.getElementById("ageYes").onclick=function(){ss("bcb_age","ok");gate.style.display="none";startPop();};
+  document.getElementById("ageNo").onclick=function(){gate.classList.add("deny");};
+
+  // UK-correct sample data: max 10x, no-wagering on top
+  var data=[
+    {op:"MrQ",tag:"No wagering",gold:true,ofr:"Up to 200 free spins, no wagering",wager:0,cash:"Keep what you win",value:96,size:200,payout:9,nodep:false,cats:["nowager","freespins","welcome"]},
+    {op:"PlayOJO",tag:"No wagering",gold:true,ofr:"50 free spins, no wagering, no cap",wager:0,cash:"No cap",value:93,size:50,payout:8,nodep:false,cats:["nowager","freespins"]},
+    {op:"tombola",tag:"Bingo",ofr:"Wager-free bingo + free tickets",wager:0,cash:"Wager-free",value:88,size:40,payout:7,nodep:false,cats:["nowager"]},
+    {op:"Betfred",ofr:"10–100 free spins daily for £10",wager:10,cash:"£100",value:83,size:100,payout:7,nodep:false,cats:["freespins","welcome"]},
+    {op:"Mr Green",ofr:"Daily free spins + cash rewards",wager:10,cash:"£100",value:79,size:80,payout:7,nodep:false,cats:["freespins","welcome","cashback"]},
+    {op:"Paddy Power",tag:"No deposit",ofr:"60 no-deposit free spins",wager:10,cash:"£100",value:77,size:60,payout:6,nodep:true,cats:["nodeposit","freespins"]},
+    {op:"BetMGM",ofr:"200 free spins for £10 on slots",wager:10,cash:"£100",value:75,size:200,payout:6,nodep:false,cats:["freespins","welcome"]},
+    {op:"Betfair",tag:"No deposit",ofr:"50 no-deposit spins + 150 after £10",wager:10,cash:"£100",value:73,size:200,payout:5,nodep:true,cats:["nodeposit","freespins"]},
+    {op:"888 Casino",ofr:"Up to 10% weekly cashback",wager:10,cash:"No cap",value:72,size:50,payout:6,nodep:false,cats:["cashback","welcome"]},
+    {op:"Ladbrokes",ofr:"£30 casino bonus after £10",wager:10,cash:"£500",value:68,size:30,payout:5,nodep:false,cats:["welcome","cashback"]}
+  ];
+  var intl=[
+    {op:"Stake",lic:"Curaçao",tag:"Crypto",ofr:"200% up to €1,000 + rakeback",wager:40,cash:"No cap",value:58,size:1000,payout:7},
+    {op:"Goldenbet",lic:"Curaçao",ofr:"100% up to €500 + 100 spins",wager:35,cash:"No cap",value:54,size:600,payout:6},
+    {op:"Velobet",lic:"Curaçao",ofr:"Up to €1,000 welcome + cashback",wager:35,cash:"5x bonus",value:52,size:1000,payout:6}
+  ];
+  var featured=[
+    {op:"MrQ",gold:true,rate:"4.9",ofr:"Up to 200 free spins, no wagering",value:96,tags:["No-wagering bonuses","Mobile app","UKGC licensed"]},
+    {op:"PlayOJO",gold:true,rate:"4.7",ofr:"50 free spins, no wagering",value:93,tags:["No wagering","Mobile first","Live chat"]},
+    {op:"Betfred",rate:"4.5",ofr:"10–100 daily free spins",value:83,tags:["Live casino","App","Long heritage"]},
+    {op:"Mr Green",rate:"4.6",ofr:"Daily free spins + cash",value:79,tags:["Tournaments","Loyalty","Live casino"]}
+  ];
+
+  function rowHTML(x,i,grey){var w=x.wager===0?'0x':(x.wager+'x');var wc=x.wager===0?'wag zero':'wag';
+    var rib=x.tag?(' <span class="ribbon'+(x.gold?' gold':'')+'">'+x.tag+'</span>'):"";
+    return '<div class="trow'+(i===0&&!grey?" top":"")+(grey?" crow":"")+'">'+
+      '<div class="rk">'+(i+1)+'</div>'+
+      '<div><div class="ofr">'+x.ofr+'</div><div class="opr">'+x.op+(x.lic?' · '+x.lic+' licence':'')+rib+'</div></div>'+
+      '<div class="'+wc+'">'+w+'</div>'+
+      '<div class="cash">'+x.cash+'</div>'+
+      '<div class="rv"><div class="num">'+x.value+'</div><div class="bar"><div class="fill" style="width:'+x.value+'%"></div></div></div>'+
+      '<div class="act"><a class="claim" href="#">Claim</a><a class="rev" data-go="review" href="#">Read review</a></div></div>';}
+  function renderInto(el,items,grey){if(!el)return;el.innerHTML="";items.forEach(function(x,i){el.insertAdjacentHTML("beforeend",rowHTML(x,i,grey));});bindGo(el);}
+  function byValue(a,b){return b.value-a.value;}
+
+  // featured cards
+  (function(){var el=document.getElementById("featuredCards");if(!el)return;
+    featured.forEach(function(x){var tags=x.tags.map(function(t){return '<span class="ftag">'+t+'</span>';}).join("");
+      el.insertAdjacentHTML("beforeend",'<div class="fcard'+(x.gold?" gold":"")+'"><div class="ava">'+x.op.charAt(0)+'</div>'+
+        '<div style="flex:1"><div class="nm">'+x.op+(x.gold?' <span class="fbadge">Featured</span>':'')+'</div><div class="frate">★ '+x.rate+' / 5</div><div class="fofr">'+x.ofr+'</div><div class="ftags">'+tags+'</div><div class="facts"><a class="rr" data-go="review" href="#">Read review →</a><a class="vc" href="#">Visit casino</a></div></div>'+
+        '<div class="frv"><div class="n">'+x.value+'</div><div class="l">Real value</div></div></div>');});
+    bindGo(el);})();
+
+  var titles={value:"Top casino bonuses",biggest:"Ranked by bonus size",nowager:"Ranked by lowest wagering",nodep:"No-deposit bonuses",payout:"Ranked by fastest payout"};
+  var homeRows=document.getElementById("homeRows");
+  function homeSort(m){var d=data.slice();
+    if(m==="nodep")d=d.filter(function(x){return x.nodep;});
+    if(m==="biggest")d.sort(function(a,b){return b.size-a.size;});
+    else if(m==="nowager")d.sort(function(a,b){return a.wager-b.wager||b.value-a.value;});
+    else if(m==="payout")d.sort(function(a,b){return b.payout-a.payout;});
+    else d.sort(byValue);return d;}
+  function setActive(m){document.querySelectorAll("[data-sort]").forEach(function(b){b.classList.toggle("on",b.dataset.sort===m);});}
+  document.querySelectorAll("[data-sort]").forEach(function(b){b.addEventListener("click",function(){setActive(b.dataset.sort);renderInto(homeRows,homeSort(b.dataset.sort));});});
+  function renderCat(cat,id){renderInto(document.getElementById(id),data.filter(function(x){return x.cats.indexOf(cat)>-1;}).sort(byValue));}
+
+  var pages=document.querySelectorAll(".page");
+  function bindGo(scope){(scope||document).querySelectorAll("[data-go]").forEach(function(a){if(a.__b)return;a.__b=1;a.addEventListener("click",function(e){e.preventDefault&&e.preventDefault();go(a.dataset.go);});});}
+  function go(name){if(!document.getElementById("page-"+name))name="home";
+    try{location.hash=name;}catch(e){}
+    pages.forEach(function(p){p.classList.remove("active");});
+    document.getElementById("page-"+name).classList.add("active");
+    document.querySelectorAll(".menu a").forEach(function(a){a.classList.toggle("on",a.dataset.go===name);});
+    window.scrollTo(0,0);
+    if(name==="home"){setActive("value");renderInto(homeRows,homeSort("value"));}
+    if(name==="nowager")renderCat("nowager","nowagerRows");
+    if(name==="freespins")renderCat("freespins","freespinsRows");
+    if(name==="nodeposit")renderCat("nodeposit","nodepositRows");
+    if(name==="welcome")renderCat("welcome","welcomeRows");
+    if(name==="cashback")renderCat("cashback","cashbackRows");
+    if(name==="intl")renderInto(document.getElementById("intlRows"),intl.slice().sort(byValue),true);
+  }
+  bindGo(document);
+  window.addEventListener("hashchange",function(){go((location.hash||"#home").replace("#",""));});
+  go((location.hash||"#home").replace("#",""));
+
+  var pop=document.getElementById("pop"),shown=false;
+  function closes(){return parseInt(gs("bcb_pop")||"0",10);}
+  function showPop(){if(shown||closes()>=2||gate.style.display!=="none")return;shown=true;pop.classList.add("show");}
+  function startPop(){setTimeout(showPop,11000);}
+  document.addEventListener("mouseout",function(e){if(e.clientY<=0)showPop();});
+  document.getElementById("popX").onclick=function(){pop.classList.remove("show");ss("bcb_pop",closes()+1);};
+  if(gs("bcb_age")==="ok")startPop();
+})();
+</script>
+</body>
+</html>
